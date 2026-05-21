@@ -8,7 +8,7 @@ default-yank-register = "+"
 completion-trigger-len = 1
 line-number = "absolute"
 shell = ["fish", "-c"]
-mouse = true
+mouse = false
 scrolloff = 8
 cursorline = true
 bufferline = "multiple"
@@ -98,6 +98,14 @@ cursor-line = "warning"  # show warnings and errors on the cursorline inline
 # Contoh: buat lebih mirip Neovim/Vim jika kamu biasa
 
 [keys.normal]
+# disable selection on moving
+w = ["move_next_word_start", "move_char_right", "collapse_selection"]
+e = ["move_next_word_end", "collapse_selection"]
+b = ["move_prev_word_start", "collapse_selection"]
+
+i = ["insert_mode", "collapse_selection"]
+a = ["append_mode", "collapse_selection"]
+
 esc = ["collapse_selection", "keep_primary_selection", ":w"]
 
 "C-s" = [":w", "normal_mode"]
@@ -113,9 +121,6 @@ K = "hover"
 "U" = "redo"
 "C-z" = "undo"
 "C-r" = "redo"
-
-"i" = "insert_mode"
-"a" = "append_mode"
 "I" = "goto_line_start"  # then insert_mode
 "A" = "goto_line_end"  # then insert_mode
 
@@ -157,6 +162,12 @@ K = "hover"
   ":redraw",
 ]
 
+"A-i" = [
+  ":sh goose",
+  ":redraw"
+]
+
+
 [keys.normal.g]
 d = "goto_definition"
 r = "goto_reference"
@@ -193,10 +204,7 @@ a = "code_action"
 
 [keys.normal.space.d]
 o = [
-  ":write-all",
-  ":new",
   ":insert-output lazydocker",
-  ":buffer-close!",
   ":redraw",
   ":reload-all"
 ]
@@ -210,10 +218,7 @@ k = [
 [keys.normal.space.g]
 # lazygit
 i = [
-  ":write-all",
-  ":new",
-  ":insert-output lazygit",
-  ":buffer-close!",
+  ":insert-output lazygit -p %sh{dirname %{buffer_name}}",
   ":redraw",
   ":reload-all"
 ]
