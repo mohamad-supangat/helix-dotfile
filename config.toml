@@ -1,0 +1,283 @@
+# ====================== THEME ======================
+# Ganti sesuai selera (coba :theme <tab> untuk lihat semua tema)
+theme = "catppuccin_mocha"  # atau: dracula, tokyonight, gruvbox, onedark, nord, etc.
+
+# ====================== EDITOR UTAMA ======================
+[editor]
+default-yank-register = "+"
+completion-trigger-len = 1
+line-number = "absolute"
+shell = ["fish", "-c"]
+mouse = true
+scrolloff = 8
+cursorline = true
+bufferline = "multiple"
+auto-save = false
+auto-format = false
+# auto-pair = true
+auto-info = true
+color-modes = true
+rulers = [79]
+true-color = true
+
+trim-final-newlines = true
+insert-final-newline = true
+trim-trailing-whitespace = true
+
+[editor.indent-guides]
+render = true
+character = "╎"  # Some characters that work well: "▏", "┆", "┊", "╎"
+skip-levels = 0
+
+[editor.soft-wrap]
+enable = true
+max-wrap = 10  # increase value to reduce forced mid-word wrapping
+max-indent-retain = 40
+
+# ====================== CURSOR SHAPE ======================
+
+[editor.cursor-shape]
+normal = "block"
+insert = "bar"
+select = "underline"
+
+# ====================== STATUSLINE ======================
+[editor.statusline]
+left = [
+  "mode",
+  "spacer",
+  "version-control",
+  "spacer",
+  "separator",
+  "file-name",
+  "file-modification-indicator"
+]
+right = [
+  "spinner",
+  "spacer",
+  "workspace-diagnostics",
+  "separator",
+  "spacer",
+  "diagnostics",
+  "position",
+  "file-encoding",
+  "file-line-ending",
+  "file-type"
+]
+
+# left = ["mode", "spinner", "file-name", "diagnostics"]
+# center = ["version-control"]
+# right = ["selections", "position", "file-encoding", "file-line-ending", "file-type"]
+
+# separator = "│
+separator = "╎"
+# mode = { normal = "NORMAL", insert = "INSERT", select = "SELECT" }
+mode = { normal = "NOR", insert = "INS", select = "SEL" }
+
+# ====================== FILE PICKER ======================
+[editor.file-picker]
+hidden = false  # tampilkan file hidden (.git, node_modules, dll)
+ignore = true  # ikuti .gitignore
+git-ignore = true
+
+# ====================== LSP & COMPLETION ======================
+[editor.lsp]
+display-messages = true
+auto-signature-help = false
+display-inlay-hints = false
+
+# ====================== MISC ======================
+[editor.whitespace]
+render = "all"
+characters = { space = "·", nbsp = "⍽", tab = "→", newline = "⏎" }
+
+[editor.inline-diagnostics]
+cursor-line = "warning"  # show warnings and errors on the cursorline inline
+
+# ====================== KEYBINDINGS TAMBAHAN (Opsional) ======================
+# Contoh: buat lebih mirip Neovim/Vim jika kamu biasa
+
+[keys.normal]
+esc = ["collapse_selection", "keep_primary_selection", ":w"]
+
+"C-s" = [":w", "normal_mode"]
+C-a = ["select_all", "select_mode"]
+C-t = ":new"
+K = "hover"
+
+"0" = "goto_line_start"
+"$" = "goto_line_end"
+"G" = "goto_file_end"
+
+"u" = "undo"
+"U" = "redo"
+"C-z" = "undo"
+"C-r" = "redo"
+
+"i" = "insert_mode"
+"a" = "append_mode"
+"I" = "goto_line_start"  # then insert_mode
+"A" = "goto_line_end"  # then insert_mode
+
+"v" = "select_mode"
+# "V" = "select_line"
+
+"{" = "paste_before"
+"}" = "paste_after"
+"p" = ":clipboard-paste-before"
+"P" = ":clipboard-paste-after"
+
+"C-p" = "file_picker"
+# "<esc>" = "search_cancel"
+
+# Git
+# "g l" = "git_log"
+# "g s" = "git_status"
+# "g c" = "git_commit"
+# "g d" = "git_diff"
+
+# Window splits
+"C-h" = "jump_view_left"
+"C-j" = "jump_view_down"
+"C-k" = "jump_view_up"
+"C-l" = "jump_view_right"
+
+# Search / Fuzzy
+"/" = "search"
+# "?" = "search_reverse"
+
+# Outline / Symbols
+"o" = "symbol_picker"
+# file explore
+"C-n" = [
+  ":sh rm -f /tmp/unique-file",
+  ":insert-output yazi %{buffer_name} --chooser-file=/tmp/unique-file",
+  ':insert-output echo "\x1b[?1049h\x1b[?2004h" > /dev/tty',
+  ":open %sh{cat /tmp/unique-file}",
+  ":redraw",
+]
+
+[keys.normal.g]
+d = "goto_definition"
+r = "goto_reference"
+c = { c = "toggle_comments" }
+
+[keys.normal.y]
+"y" = ["extend_line_below", ":clipboard-yank", "collapse_selection"]
+
+[keys.normal.d]
+"d" = ["extend_line_below", "delete_selection"]
+
+[keys.normal.space]
+i = ":toggle lsp.display-inlay-hints"
+"-" = "hsplit"
+"|" = "vsplit"
+# "c" = ":config-reload"
+
+R = [
+  ":write-all",
+  ":insert-output scooter --no-stdin --interpret-escape-sequences >/dev/tty",
+  ":redraw",
+  ":reload-all"
+]
+
+# disable some keymaps
+
+j = "no_op"
+k = "no_op"
+
+[keys.normal.space.l]
+t = "goto_type_definition"
+i = "goto_implementation"
+a = "code_action"
+
+[keys.normal.space.d]
+o = [
+  ":write-all",
+  ":new",
+  ":insert-output lazydocker",
+  ":buffer-close!",
+  ":redraw",
+  ":reload-all"
+]
+
+[keys.normal.space.n]
+# obsidian note
+k = [
+  ":o ~/Documents/Obsidian",
+]
+
+[keys.normal.space.g]
+# lazygit
+i = [
+  ":write-all",
+  ":new",
+  ":insert-output lazygit",
+  ":buffer-close!",
+  ":redraw",
+  ":reload-all"
+]
+
+[keys.normal.space.q]
+"a" = ":quit!"
+
+[keys.normal.space.f]
+"m" = ":format"
+
+[keys.normal.space.b]
+# Buffer management
+n = ":buffer-next"
+b = ":buffer-previous"
+d = ":buffer-close"
+"D" = ":buffer-close!"
+
+[keys.normal.f]
+m = ":format"
+
+[keys.normal.r]
+n = "rename_symbol"
+
+# Config Mode
+[keys.normal."C-c"]
+r = [":config-reload", ":reload-all"]
+o = ":config-open"
+l = ":o ~/.config/helix/languages.toml"
+
+[keys.select]
+tab = "indent"
+S-tab = "unindent"
+">" = "indent"
+"<" = "unindent"
+"0" = "goto_line_start"
+"$" = "goto_line_end"
+"G" = "goto_file_end"
+"y" = [":clipboard-yank", "normal_mode", "collapse_selection"]
+"/" = "search_selection"
+"x" = [
+  ":clipboard-yank",
+  "delete_selection_noyank",
+  "normal_mode",
+  "collapse_selection"
+]
+"backspace" = ["delete_selection_noyank", "normal_mode", "collapse_selection"]
+esc = ["collapse_selection", "keep_primary_selection", "normal_mode", ":w"]
+"," = "repeat_last_motion"
+
+[keys.select.g]
+c = "toggle_comments"
+
+[keys.select.f]
+m = "format_selections"
+
+[keys.insert]
+C-c = "signature_help"
+"C-s" = [":w", "normal_mode"]
+# up = "no_op"
+# down = "no_op"
+# left = "no_op"
+# right = "no_op"
+# pageup = "no_op"
+# pagedown = "no_op"
+# home = "no_op"
+# end = "no_op"
+"C-space" = "completion"
