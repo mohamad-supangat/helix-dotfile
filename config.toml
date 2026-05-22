@@ -8,10 +8,10 @@ default-yank-register = "+"
 completion-trigger-len = 1
 line-number = "absolute"
 # shell = ["fish", "-c"]
-mouse = false
+mouse = true
 scrolloff = 8
 cursorline = true
-bufferline = "multiple"
+# bufferline = "multiple"
 auto-save = false
 auto-format = false
 # auto-pair = true
@@ -27,6 +27,14 @@ trim-trailing-whitespace = true
 popup-border = "all"
 auto-completion = true
 path-completion = true
+
+## fork
+rounded-corners = true
+max-panel-width = 0
+max-panel-height = 0
+max-panel-width-percent = 0.6
+max-panel-height-percent = 0.6
+# inline-blame = { show = "cursor-line", format = "{author} • {time-ago} • {title}", auto-fetch = false }
 
 [editor.indent-guides]
 render = true
@@ -86,17 +94,48 @@ git-ignore = true
 
 # ====================== LSP & COMPLETION ======================
 [editor.lsp]
-display-messages = true
+display-messages = false
 auto-signature-help = false
 display-inlay-hints = false
+
+# fork
+display-color-swatches = true
+color-swatches-string = "●"
 
 # ====================== MISC ======================
 [editor.whitespace]
 render = "all"
 characters = { space = "·", nbsp = "⍽", tab = "→", newline = "⏎" }
 
-[editor.inline-diagnostics]
-cursor-line = "warning"  # show warnings and errors on the cursorline inline
+[editor.cmdline]
+# Command line style: "bottom" (default) or "popup" (noice.nvim style)
+style = "popup"
+
+# Show command type icons (default: true)
+show-icons = true
+
+# Popup dimensions
+min-popup-width = 40  # Minimum width for popup cmdline
+max-popup-width = 80  # Maximum width for popup cmdline
+
+# Use full height when style is popup (removes bottom space, default: false)
+# Only applies when style = "popup"
+use-full-height = true
+
+# Customize command icons
+[editor.cmdline.icons]
+search = "/"
+command = ":"
+shell = "$"
+general = ">"
+
+[editor.notifications]
+enable = false
+
+#
+# [editor.inline-diagnostics]
+# cursor-line = "warning"  # show warnings and errors on the cursorline inline
+# cursor-line = "none"  # show warnings and errors on the cursorline inline
 
 # ====================== KEYBINDINGS TAMBAHAN (Opsional) ======================
 # Contoh: buat lebih mirip Neovim/Vim jika kamu biasa
@@ -227,7 +266,7 @@ i = [
 ]
 
 [keys.normal.space.q]
-"a" = ":quit!"
+"a" = ":quit-all!"
 
 [keys.normal.space.f]
 "m" = ":format"

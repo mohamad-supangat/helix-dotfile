@@ -1,3 +1,7 @@
+[language-server.llm]
+command = "llm-lsp"
+args = ["server", "-p", "codeium"]
+
 [language-server.phpantom]
 command = "phpantom_lsp"
 
@@ -5,71 +9,69 @@ command = "phpantom_lsp"
 command = "hx-lsp"
 
 [language-server.hx-lsp.config]
-markdown = false              # Disable markdown features
-documentColor = true         # Enable document color
+markdown = false  # Disable markdown features
+documentColor = true  # Enable document color
 
 [[language]]
 name = "php"
 rulers = [120]
-language-servers = [ "phpantom", "hx-lsp" ]
+language-servers = ["phpantom", "hx-lsp", "llm"]
 
 [[language]]
 name = "blade"
 roots = [".git", "composer.json"]
-language-servers = [ "phpantom", "hx-lsp" ]
+language-servers = ["phpantom", "hx-lsp", "llm"]
 formatter = { command = "blade-formatter", args = ["--stdin"] }
 
 [[language]]
 name = "javascript"
 formatter = { command = "prettier", args = ["--parser", "babel"] }
-language-servers = [ "typescript-language-server", "hx-lsp" ]
+language-servers = ["typescript-language-server", "hx-lsp", "llm"]
 
 [[language]]
 name = "jsx"
 formatter = { command = "prettier", args = ["--parser", "babel"] }
-language-servers = [ "typescript-language-server", "hx-lsp" ]
+language-servers = ["typescript-language-server", "hx-lsp", "llm"]
 
 [[language]]
 name = "typescript"
 formatter = { command = "prettier", args = ["--parser", "typescript"] }
-language-servers = [ "typescript-language-server", "hx-lsp" ]
+language-servers = ["typescript-language-server", "hx-lsp", "llm"]
 
 [[language]]
 name = "tsx"
 formatter = { command = "prettier", args = ["--parser", "typescript"] }
-language-servers = [ "typescript-language-server", "hx-lsp" ]
+language-servers = ["typescript-language-server", "hx-lsp", "llm"]
 
 [[language]]
 name = "json"
 formatter = { command = "prettier", args = ["--parser", "json"] }
-language-servers = [ "hx-lsp" ]
+language-servers = ["hx-lsp", "llm"]
 
 [[language]]
 name = "css"
 formatter = { command = "prettier", args = ["--parser", "css"] }
-language-servers = [ "hx-lsp" ]
+language-servers = ["hx-lsp", "llm"]
 
 [[language]]
 name = "html"
 formatter = { command = "prettier", args = ["--parser", "html"] }
-language-servers = [ "hx-lsp" ]
+language-servers = ["hx-lsp", "llm"]
 
 [[language]]
 name = "vue"
 formatter = { command = "prettier", args = ["--parser", "vue"] }
-language-servers = [ "hx-lsp" ]
+language-servers = ["hx-lsp", "llm"]
 
 [[language]]
 name = "markdown"
 formatter = { command = "prettier", args = ["--parser", "markdown"] }
-language-servers = [ "hx-lsp" ]
+language-servers = ["hx-lsp", "llm"]
 
 [[language]]
 name = "yaml"
 formatter = { command = "prettier", args = ["--parser", "yaml"] }
-language-servers = [ "hx-lsp" ]
-
-
+language-servers = ["hx-lsp", "llm"]
 
 [[language]]
 name = "stub"
@@ -78,4 +80,4 @@ file-types = []
 shebangs = []
 roots = []
 auto-format = false
-language-servers = [ "hx-lsp" ]
+language-servers = ["hx-lsp", "llm"]
