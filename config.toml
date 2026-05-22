@@ -1,13 +1,13 @@
 # ====================== THEME ======================
 # Ganti sesuai selera (coba :theme <tab> untuk lihat semua tema)
-theme = "catppuccin_mocha"  # atau: dracula, tokyonight, gruvbox, onedark, nord, etc.
+theme = "rose_pine"  # atau: dracula, tokyonight, gruvbox, onedark, nord, etc.
 
 # ====================== EDITOR UTAMA ======================
 [editor]
 default-yank-register = "+"
 completion-trigger-len = 1
 line-number = "absolute"
-shell = ["fish", "-c"]
+# shell = ["fish", "-c"]
 mouse = false
 scrolloff = 8
 cursorline = true
@@ -21,13 +21,16 @@ rulers = [79]
 true-color = true
 
 trim-final-newlines = true
-insert-final-newline = true
+insert-final-newline = false
 trim-trailing-whitespace = true
+
+auto-completion=true
+path-completion=true
 
 [editor.indent-guides]
 render = true
-character = "╎"  # Some characters that work well: "▏", "┆", "┊", "╎"
-skip-levels = 0
+character = "▏"  # Some characters that work well: "▏", "┆", "┊", "╎"
+skip-levels = 1
 
 [editor.soft-wrap]
 enable = true
@@ -69,8 +72,8 @@ right = [
 # center = ["version-control"]
 # right = ["selections", "position", "file-encoding", "file-line-ending", "file-type"]
 
-# separator = "│
-separator = "╎"
+separator = "│"
+# separator = "╎"
 # mode = { normal = "NORMAL", insert = "INSERT", select = "SELECT" }
 mode = { normal = "NOR", insert = "INS", select = "SEL" }
 
@@ -132,6 +135,7 @@ K = "hover"
 "p" = ":clipboard-paste-before"
 "P" = ":clipboard-paste-after"
 
+
 "C-p" = "file_picker"
 # "<esc>" = "search_cancel"
 
@@ -157,15 +161,16 @@ K = "hover"
 "C-n" = [
   ":sh rm -f /tmp/unique-file",
   ":insert-output yazi %{buffer_name} --chooser-file=/tmp/unique-file",
+  # ":insert-output ranger %{buffer_name}  --choosefile=/tmp/unique-file",
   ':insert-output echo "\x1b[?1049h\x1b[?2004h" > /dev/tty',
   ":open %sh{cat /tmp/unique-file}",
   ":redraw",
 ]
 
-"A-i" = [
-  ":sh goose",
-  ":redraw"
-]
+# "A-i" = [
+#   ":sh goose",
+#   ":redraw"
+# ]
 
 
 [keys.normal.g]
@@ -196,6 +201,9 @@ R = [
 
 j = "no_op"
 k = "no_op"
+
+z = ":toggle gutters.line-numbers.min-width 48 3"
+
 
 [keys.normal.space.l]
 t = "goto_type_definition"
@@ -276,6 +284,8 @@ m = "format_selections"
 
 [keys.insert]
 C-c = "signature_help"
+C-k = "signature_help"
+
 "C-s" = [":w", "normal_mode"]
 # up = "no_op"
 # down = "no_op"
