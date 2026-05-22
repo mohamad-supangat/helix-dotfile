@@ -24,8 +24,8 @@ trim-final-newlines = true
 insert-final-newline = false
 trim-trailing-whitespace = true
 
-auto-completion=true
-path-completion=true
+auto-completion = true
+path-completion = true
 
 [editor.indent-guides]
 render = true
@@ -135,7 +135,6 @@ K = "hover"
 "p" = ":clipboard-paste-before"
 "P" = ":clipboard-paste-after"
 
-
 "C-p" = "file_picker"
 # "<esc>" = "search_cancel"
 
@@ -172,7 +171,6 @@ K = "hover"
 #   ":redraw"
 # ]
 
-
 [keys.normal.g]
 d = "goto_definition"
 r = "goto_reference"
@@ -204,18 +202,13 @@ k = "no_op"
 
 z = ":toggle gutters.line-numbers.min-width 48 3"
 
-
 [keys.normal.space.l]
 t = "goto_type_definition"
 i = "goto_implementation"
 a = "code_action"
 
 [keys.normal.space.d]
-o = [
-  ":insert-output lazydocker",
-  ":redraw",
-  ":reload-all"
-]
+o = [":insert-output lazydocker", ":redraw", ":reload-all"]
 
 [keys.normal.space.n]
 # obsidian note
@@ -226,7 +219,8 @@ k = [
 [keys.normal.space.g]
 # lazygit
 i = [
-  ":insert-output lazygit -p %sh{dirname %{buffer_name}}",
+  # ":insert-output lazygit -p %sh{dirname %{buffer_name}}",
+  ":insert-output lazygit -p %sh{git -C $(dirname %{buffer_name}) rev-parse --show-toplevel 2>/dev/null || dirname %{buffer_name}}",
   ":redraw",
   ":reload-all"
 ]
