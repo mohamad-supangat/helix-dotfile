@@ -24,6 +24,7 @@ trim-final-newlines = true
 insert-final-newline = false
 trim-trailing-whitespace = true
 
+popup-border = "all"
 auto-completion = true
 path-completion = true
 
