@@ -33,39 +33,27 @@
         "path": "./blade.json"
       },
       {
-        "language": [
-          "markdown"
-        ],
+        "language": ["markdown"],
         "path": "./markdown.json"
       },
       {
-        "language": [
-          "html"
-        ],
+        "language": ["html"],
         "path": "./html.json"
       },
       {
-        "language": [
-          "lua"
-        ],
+        "language": ["lua"],
         "path": "./lua.json"
       },
       {
-        "language": [
-          "json"
-        ],
+        "language": ["json"],
         "path": "./json.json"
       },
       {
-        "language": [
-          "dosini"
-        ],
+        "language": ["dosini"],
         "path": "./dosini.json"
       },
       {
-        "language": [
-          "typescriptreact"
-        ],
+        "language": ["typescriptreact"],
         "path": "./typescriptreact.json"
       }
     ]
