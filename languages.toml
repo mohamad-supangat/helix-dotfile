@@ -16,6 +16,8 @@ documentColor = true  # Enable document color
 name = "php"
 rulers = [120]
 language-servers = ["phpantom", "hx-lsp", "llm"]
+formatter = { command = "php-cs-fixer", args = ["fix", "--stdin", "--path-mode=override", "-"] }
+
 
 [[language]]
 name = "blade"

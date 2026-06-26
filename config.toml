@@ -1,6 +1,6 @@
 # ====================== THEME ======================
 # Ganti sesuai selera (coba :theme <tab> untuk lihat semua tema)
-theme = "rose_pine"  # atau: dracula, tokyonight, gruvbox, onedark, nord, etc.
+theme = "vesper-transparent"  # atau: dracula, tokyonight, gruvbox, onedark, nord, etc.
 
 # ====================== EDITOR UTAMA ======================
 [editor]
@@ -36,6 +36,12 @@ skip-levels = 1
 enable = true
 max-wrap = 10  # increase value to reduce forced mid-word wrapping
 max-indent-retain = 40
+
+
+# ====================== MISC ======================
+[editor.whitespace]
+render = "all"
+characters = { space = "·", nbsp = "⍽", tab = "→", newline = "⏎" }
 
 # ====================== CURSOR SHAPE ======================
 
