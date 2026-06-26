@@ -11,10 +11,9 @@ line-number = "absolute"
 mouse = true
 scrolloff = 8
 cursorline = true
-# bufferline = "multiple"
+bufferline = "multiple"
 auto-save = false
 auto-format = false
-# auto-pair = true
 auto-info = true
 color-modes = true
 rulers = [79]
@@ -27,14 +26,6 @@ trim-trailing-whitespace = true
 popup-border = "all"
 auto-completion = true
 path-completion = true
-
-## fork
-# rounded-corners = true
-# max-panel-width = 0
-# max-panel-height = 0
-# max-panel-width-percent = 0.6
-# max-panel-height-percent = 0.6
-# inline-blame = { show = "cursor-line", format = "{author} • {time-ago} • {title}", auto-fetch = false }
 
 [editor.indent-guides]
 render = true
@@ -287,12 +278,4 @@ C-c = "signature_help"
 C-k = "signature_help"
 
 "C-s" = [":w", "normal_mode"]
-# up = "no_op"
-# down = "no_op"
-# left = "no_op"
-# right = "no_op"
-# pageup = "no_op"
-# pagedown = "no_op"
-# home = "no_op"
-# end = "no_op"
 "C-space" = "completion"
