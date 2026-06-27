@@ -1,6 +1,6 @@
 # ====================== THEME ======================
 # Ganti sesuai selera (coba :theme <tab> untuk lihat semua tema)
-theme = "vesper-transparent"  # atau: dracula, tokyonight, gruvbox, onedark, nord, etc.
+theme = "github_dark"  # atau: dracula, tokyonight, gruvbox, onedark, nord, etc.
 
 # ====================== EDITOR UTAMA ======================
 [editor]
@@ -26,6 +26,7 @@ trim-trailing-whitespace = true
 popup-border = "all"
 auto-completion = true
 path-completion = true
+clipboard-provider = "wayland"
 
 [editor.indent-guides]
 render = true
@@ -86,8 +87,10 @@ mode = { normal = "NOR", insert = "INS", select = "SEL" }
 # ====================== FILE PICKER ======================
 [editor.file-picker]
 hidden = false  # tampilkan file hidden (.git, node_modules, dll)
-ignore = true  # ikuti .gitignore
-git-ignore = true
+ignore = false  # ikuti .gitignore
+git-ignore = false
+
+
 
 # ====================== LSP & COMPLETION ======================
 [editor.lsp]
@@ -96,9 +99,8 @@ auto-signature-help = false
 display-inlay-hints = false
 
 
-# [editor.inline-diagnostics]
-# cursor-line = "warning"  # show warnings and errors on the cursorline inline
-# cursor-line = "none"  # show warnings and errors on the cursorline inline
+[editor.inline-diagnostics]
+cursor-line = "disable"
 
 # ====================== KEYBINDINGS TAMBAHAN (Opsional) ======================
 # Contoh: buat lebih mirip Neovim/Vim jika kamu biasa
@@ -138,8 +140,27 @@ K = "hover"
 "p" = ":clipboard-paste-before"
 "P" = ":clipboard-paste-after"
 
-"C-p" = "file_picker"
+# "C-p" = ["file_picker"]
+"C-p" = "@<space>F<C-t>"
 # "<esc>" = "search_cancel"
+
+
+
+# "C-p" = [
+#   ":sh rm -f /tmp/unique-file",
+#   ":insert-output skim > /dev/tty < /dev/tty 2>/dev/null | head -n 1 > /tmp/unique-file",
+#   ":open %sh{cat /tmp/unique-file}",
+#   ":redraw",
+# ]
+
+# "C-p" = [
+#   ":sh rm -f /tmp/unique-file",
+#   ":insert-output fzf",
+#   # ":insert-output ranger %{buffer_name}  --choosefile=/tmp/unique-file",
+#   ':insert-output echo "\x1b[?1049h\x1b[?2004h" > /dev/tty',
+#   ":open %sh{cat /tmp/unique-file}",
+#   ":redraw",
+# ]
 
 # Git
 # "g l" = "git_log"
@@ -240,6 +261,7 @@ n = ":buffer-next"
 b = ":buffer-previous"
 d = ":buffer-close"
 "D" = ":buffer-close!"
+"f" = "buffer_picker"
 
 [keys.normal.f]
 m = ":format"
@@ -285,3 +307,6 @@ C-k = "signature_help"
 
 "C-s" = [":w", "normal_mode"]
 "C-space" = "completion"
+
+"C-h" = "move_char_left"
+"C-l" = "move_char_right"
