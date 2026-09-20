@@ -127,7 +127,7 @@ K = "hover"
 
 "u" = "undo"
 "U" = "redo"
-"C-z" = "undo"
+"C-z" = ":zen"
 "C-r" = "redo"
 "I" = "goto_line_start"  # then insert_mode
 "A" = "goto_line_end"  # then insert_mode
