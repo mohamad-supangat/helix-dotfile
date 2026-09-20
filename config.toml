@@ -1,6 +1,6 @@
 # ====================== THEME ======================
 # Ganti sesuai selera (coba :theme <tab> untuk lihat semua tema)
-theme = "github_dark"  # atau: dracula, tokyonight, gruvbox, onedark, nord, etc.
+theme = "catppuccin_mocha"  # atau: dracula, tokyonight, gruvbox, onedark, nord, etc.
 
 # ====================== EDITOR UTAMA ======================
 [editor]
